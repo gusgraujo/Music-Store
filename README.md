@@ -23,16 +23,18 @@ for the application.
 * Admin Panel: An admin panel will be provided to manage the products, orders, and users of the platform.
 
 **Technical Stack:**
+<details closed>
 
 Java 11+<br>
 Spring Boot<br>
 Spring MVC<br>
 Spring Data JPA<br>
-MySQL<br>
+PostgreSQL<br>
 Thymeleaf<br>
 HTML/CSS<br>
 Bootstrap<br>
 Git<br>
+</details>
 
 
 **Conclusion**:<br>
@@ -42,3 +44,23 @@ purchase their favorite music albums, tracks, and
 merchandise. The use of the Spring Framework will provide 
 a scalable and robust architecture that can handle a large
 number of users and products.
+
+
+##### Docker configuration
+
+###### PostgreSQL
+
+ 1 - Create Dockerfile with :
+
+    FROM postgres:latest
+    
+ 2 - Run dockerfile:
+
+    docker build -t my-postgres .
+
+ 3 - Run the postgreSQL container: 
+    
+    docker run --name my-postgres-container -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d my-postgres
+
+
+docker run --name my-postgres-container -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d my-postgres
