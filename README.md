@@ -50,17 +50,10 @@ number of users and products.
 
 ###### PostgreSQL
 
- 1 - Create Dockerfile with :
-
-    FROM postgres:latest
-    
- 2 - Run dockerfile:
+ 1 - Run dockerfile:
 
     docker build -t my-postgres .
 
- 3 - Run the postgreSQL container: 
+ 2 - Run the postgreSQL container: 
     
     docker run --name my-postgres-container -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d my-postgres
-
-
-docker run --name my-postgres-container -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d my-postgres
