@@ -4,10 +4,12 @@ import com.project.MusicStore.model.Base.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 import java.util.Date;
 
 @Entity
+@Table(name = "Payments")
 public class Payments extends BaseEntity {
 
     private Double amount;
@@ -16,7 +18,7 @@ public class Payments extends BaseEntity {
 
     @OneToOne
     @JoinColumn(name = "order_id")
-    Order order;
+    private Orders order;
 
     public double getAmount() {
         return amount;

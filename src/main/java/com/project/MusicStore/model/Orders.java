@@ -1,14 +1,14 @@
 package com.project.MusicStore.model;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import com.project.MusicStore.model.Base.BaseEntity;
+import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Order {
+@Entity
+@Table(name = "Orders")
+public class Orders extends BaseEntity {
 
     private String status;
 
@@ -16,12 +16,14 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @OneToOne(mappedBy = "order")
+    private Payments payments;
 
     @ManyToMany
     @JoinTable(
-            name = "order_product",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
+            name = "orders_product",
+            joinColumns = @JoinColumn(name = "orders_id"),
+            inverseJoinColumns = @JoinColumn(name = "products_id")
     )
     private Set<Products> products = new HashSet<>();
 

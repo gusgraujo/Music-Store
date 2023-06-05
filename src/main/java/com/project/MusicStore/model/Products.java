@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "Products")
 public class Products extends NamedBaseEntity {
 
     private String description;
@@ -16,13 +18,13 @@ public class Products extends NamedBaseEntity {
     private Set<Cart> carts = new HashSet<>();
 
     @OneToOne
-    @JoinColumn(name = "payment_id")
+    @JoinColumn(name = "payments_id")
     Payments payment;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "product_genre",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "genre_id"))
+            joinColumns = @JoinColumn(name = "products_id"),
+            inverseJoinColumns = @JoinColumn(name = "genres_id"))
     private Set<Genres> genres = new HashSet<>();
 
 

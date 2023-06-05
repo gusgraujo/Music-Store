@@ -1,14 +1,13 @@
 package com.project.MusicStore.model;
 
 import com.project.MusicStore.model.Base.BaseEntity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "Cart")
 public class Cart extends BaseEntity {
 
     private Double totalPrice;
